@@ -1,8 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:todo_app/core/constants.dart';
 import 'package:todo_app/features/data/cubits/todo_cubit/task_cubit.dart';
 import 'package:todo_app/features/data/cubits/todo_cubit/task_states.dart';
 import 'package:todo_app/features/data/models/task_model.dart';
@@ -41,9 +39,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   SlidableAction(
                     borderRadius: BorderRadius.circular(8),
                     onPressed: (context) {},
-                    //backgroundColor: const Color(0xFFFE4A49),
                     backgroundColor: Colors.white,
-                   // foregroundColor: Colors.white,
                     icon: Icons.delete,
                     label: 'Delete',
                   ),

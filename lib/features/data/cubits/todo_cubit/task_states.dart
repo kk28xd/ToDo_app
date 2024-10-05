@@ -9,6 +9,15 @@ class TaskFailure extends TaskStates {
   TaskFailure({required this.errorMessage});
 }
 
+class SearchInitial extends TaskStates {}
+class SearchLoading extends TaskStates {}
+class SearchSuccess extends TaskStates {}
+class UpdateSearchSuccess extends TaskStates {}
+class SearchFailure extends TaskStates {
+  final String errorMessage;
+
+  SearchFailure({required this.errorMessage});
+}
 
 class AddTaskSuccess extends TaskStates {}
 class AddTaskLoading extends TaskStates {}

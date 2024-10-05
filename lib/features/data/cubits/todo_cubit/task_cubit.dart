@@ -17,6 +17,13 @@ class TaskCubit extends Cubit<TaskStates> {
   late Database database;
   String dbName = 'Tasks';
   List<Task>? tasks;
+  String searchText = '';
+
+  void updateSearchText(String text) {
+    searchText = text;
+    getAllTasks();
+    emit(UpdateSearchSuccess());
+  }
 
   Future<void> createDB() async {
     try {
@@ -50,7 +57,6 @@ class TaskCubit extends Cubit<TaskStates> {
           'UPDATE $dbName SET title = ?, isDone = ? WHERE id = ?',
           [task.title, num, task.id]);
       emit(UpdateTaskSuccess());
-
     } catch (e) {
       log(e.toString());
       emit(UpdateTaskFailure(errorMessage: e.toString()));
@@ -70,7 +76,15 @@ class TaskCubit extends Cubit<TaskStates> {
     try {
       List<Map<String, dynamic>> results =
           await database.rawQuery('SELECT * FROM $dbName');
-      tasks = results.map((taskMap) => Task.fromMap(taskMap)).toList();
+      if (searchText.isEmpty) {
+        tasks = results.map((taskMap) => Task.fromMap(taskMap)).toList();
+      } else {
+        tasks = results.map((taskMap) => Task.fromMap(taskMap)).toList();
+        tasks = tasks!
+            .where((item) =>
+                item.title.toLowerCase().contains(searchText.toLowerCase()))
+            .toList();
+      }
       emit(TaskSuccess());
     } catch (e) {
       log(e.toString());
