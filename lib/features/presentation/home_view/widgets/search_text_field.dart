@@ -32,6 +32,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
       },
     );
   }
+
   OutlineInputBorder myBorder([color]) {
     return OutlineInputBorder(
       borderSide: BorderSide(color: color ?? Colors.white),

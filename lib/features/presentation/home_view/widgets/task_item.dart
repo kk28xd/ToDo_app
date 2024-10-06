@@ -65,32 +65,3 @@ class _TaskItemState extends State<TaskItem> {
     );
   }
 }
-
-// icon: const Icon(Icons.check_box,color: Colors.white,),
-// icon: const Icon(
-// Icons.check_box_outline_blank,
-// color: Colors.white,
-// ),
-
-// Checkbox(
-// activeColor: Colors.white,
-// checkColor: Colors.black,
-// value: isChecked,
-// onChanged: (value) {
-// isChecked = value!;
-// setState(() {});
-// },
-// ),
-
-// trailing: IconButton(
-//   onPressed: () {},
-//   icon: task.isDone == 1
-//       ? const Icon(
-//           Icons.check_box,
-//           color: Colors.white,
-//         )
-//       : const Icon(
-//           Icons.check_box_outline_blank,
-//           color: Colors.white,
-//         ),
-// ),

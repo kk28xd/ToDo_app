@@ -7,14 +7,17 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.label,
     this.onSaved,
+    this.textEditingController,
   });
 
   final String label;
   final void Function(String?)? onSaved;
+  final TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: textEditingController,
       autofocus: true,
       onSaved: onSaved,
       validator: (val) {
@@ -43,20 +46,3 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-//
-// class CustomTextField extends StatelessWidget {
-//   const CustomTextField({super.key, required this.textEditingController});
-//   final TextEditingController textEditingController;
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextFormField(
-//       controller: textEditingController,
-//       autofocus: true,
-//       maxLines: 1,
-//       decoration: const InputDecoration(
-//           hintText: 'Title', border: OutlineInputBorder()),
-//     );
-//   }
-// }
